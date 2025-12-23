@@ -1,8 +1,8 @@
 ---
 layout: home
-title: Latest Deals & Product Blogs
+title: Home
 ---
 
-Welcome to **SEO Blog Automation**.
+# Latest Electronics Deals & Reviews
 
-Below are the latest automatically published posts:
+Automated blog posts about trending electronics products.
