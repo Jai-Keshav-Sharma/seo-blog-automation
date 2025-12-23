@@ -1,0 +1,9 @@
+title: SEO Blog Automation
+description: Automatically generated deal and product blogs
+theme: minima
+
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
