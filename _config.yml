@@ -1,16 +1,16 @@
 title: SEO Blog Automation
-description: Automatically generated deal and product blogs
+description: Automated electronics deal blog posts
+baseurl: "/seo-blog-automation"
+url: "https://Jai-Keshav-Sharma.github.io"
+
 theme: minima
 
 markdown: kramdown
-permalink: /:year/:month/:day/:title/
-
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
-
-#   title: SEO Blog Automation
-# description: Automated deal and product blogs
-# theme: minima
-
-# permalink: /:year/:month/:day/:title/
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
