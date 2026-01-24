@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Can You Trust Your Model? (Spoiler: Probably Not)"
+title: "Can You Trust Your Model?"
 date: 2026-01-24
 categories: [machine-learning]
 tags: [model-calibration, platt-scaling, probability, classification]
 author: "Your Name"
-image: https://substackcdn.com/image/fetch/$s_!PZB8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4e76de15-ef24-451a-b790-017cf33d8040_2000x1344.png
+image: image/2026-01-24-can-you-trust-your-model-calibration/calibration_cover.png
 description: "Your model says it's 90% confident. Reality says it's wrong 30% of the time. Let's fix that."
 ---
 
@@ -77,7 +77,7 @@ Alright, enough doom and gloom. Let's fix this.
 Here's the recipe:
 
 <p align="center">
-<img src="https://substackcdn.com/image/fetch/$s_!iS5V!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3fcecbaa-03a1-491b-8d35-03eea22f5e80_2980x900.png" alt="Platt Scaling Steps" style="max-width: 100%; width: 650px;">
+<img src="https://substackcdn.com/image/fetch/$s_!iS5V!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3fcecbaa-03a1-491b-8d35-03eea22f5e80_2980x900.png" alt="Platt Scaling Steps" style="max-width: 100%; width: 600px;">
 </p>
 
 <p align="center">
