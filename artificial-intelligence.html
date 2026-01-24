@@ -1,7 +1,27 @@
 ---
-layout: category
+layout: default
 title: Artificial Intelligence
 category: artificial-intelligence
 description: "Delving into the broader world of AI, from neural networks to intelligent systems."
 permalink: /artificial-intelligence/
 ---
+
+<div class="category-container">
+    <header class="category-header">
+        <h1 class="category-title">{{ page.title }}</h1>
+        {% if page.description %}
+        <p class="category-description">{{ page.description }}</p>
+        {% endif %}
+    </header>
+    
+    <div class="coming-soon-container" style="text-align: center; padding: 80px 20px;">
+        <h2 style="font-size: 2.5rem; color: #6c757d; margin-bottom: 20px;">🚀 Coming Soon</h2>
+        <p style="font-size: 1.2rem; color: #868e96; max-width: 500px; margin: 0 auto;">
+            We're cooking up some exciting AI content. Stay tuned!
+        </p>
+    </div>
+    
+    <div class="back-link">
+        <a href="{{ '/' | relative_url }}"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    </div>
+</div>
