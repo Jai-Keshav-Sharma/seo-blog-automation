@@ -4,7 +4,7 @@ title: "Can You Trust Your Model?"
 date: 2026-01-24
 categories: [machine-learning]
 tags: [model-calibration, platt-scaling, probability, classification]
-author: "Your Name"
+author: "Jai Keshav Sharma"
 image: assets/images/posts/calibration_cover.png
 description: "Your model says it's 90% confident. Reality says it's wrong 30% of the time. Let's fix that."
 ---
