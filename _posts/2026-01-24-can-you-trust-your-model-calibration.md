@@ -5,10 +5,9 @@ date: 2026-01-24
 categories: [machine-learning]
 tags: [model-calibration, platt-scaling, probability, classification]
 author: "Your Name"
-image: /assets/images/posts/model-calibration.jpg
+image: https://substackcdn.com/image/fetch/$s_!PZB8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4e76de15-ef24-451a-b790-017cf33d8040_2000x1344.png
 description: "Your model says it's 90% confident. Reality says it's wrong 30% of the time. Let's fix that."
 ---
-# Can You Trust Your Model? (Spoiler: Probably Not)
 
 So you've built a classification model. You've tuned your hyperparameters like a DJ tweaking knobs at a club. Your accuracy score is *chef's kiss*. You're ready to deploy.
 
@@ -82,15 +81,15 @@ Here's the recipe:
 </p>
 
 <p align="center">
-<img src="image/2026-01-24-can-you-trust-your-model-calibration/1769268430955.png" alt="Step 1" style="max-width: 100%; width: 600px;">
+<img src="https://substackcdn.com/image/fetch/$s_!4BtG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe5d2bb77-4cad-4b9f-a9be-1f2e7caedd4d_2976x688.png" alt="Step 1" style="max-width: 100%; width: 600px;">
 </p>
 
 <p align="center">
-<img src="image/2026-01-24-can-you-trust-your-model-calibration/1769268446583.png" alt="Step 2" style="max-width: 100%; width: 600px;">
+<img src="https://substackcdn.com/image/fetch/$s_!G2CH!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faf15ff09-aacb-440e-8382-bc2093670a2f_2976x716.png" alt="Step 2" style="max-width: 100%; width: 600px;">
 </p>
 
 <p align="center">
-<img src="image/2026-01-24-can-you-trust-your-model-calibration/1769268458875.png" alt="Step 3" style="max-width: 100%; width: 600px;">
+<img src="https://substackcdn.com/image/fetch/$s_!hGyM!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ef653dc-8058-4cee-a22b-fd6a62cc69c1_2980x580.png" alt="Step 3" style="max-width: 100%; width: 600px;">
 </p>
 
 1. **Train your base model** on the training data (it'll probably be overconfident, the audacity)
@@ -108,9 +107,10 @@ Time to stop philosophizing and start coding. We'll use a loan prediction datase
 
 After the usual data science janitorial work (loading data, imputing missing values, scaling, encoding — you know the drill), we train our base model:
 
-<p align="center">
-<img src="image/2026-01-24-can-you-trust-your-model-calibration/1769269145424.png" alt="Training base model" style="max-width: 100%; width: 500px;">
-</p>
+```python
+clf = SGDClassifier(loss='log_loss')
+clf.fit(X_train, y_train)
+```
 
 ---
 
@@ -118,17 +118,21 @@ After the usual data science janitorial work (loading data, imputing missing val
 
 Here's where the calibration happens. We grab the logits from our base model and train a Logistic Regression to map them to calibrated probabilities.
 
-<p align="center">
-<img src="image/2026-01-24-can-you-trust-your-model-calibration/1769269159678.png" alt="Platt Scaling code" style="max-width: 100%; width: 500px;">
-</p>
+```python
+logits = clf.decision_function(X_val)
+
+platt_lr = LogisticRegression()
+platt_lr.fit(logits.reshape(-1, 1), y_val)
+```
 
 That's it. Three lines. We just taught our model some humility.
 
 Now to get calibrated predictions, just pass new data through both models:
 
-<p align="center">
-<img src="image/2026-01-24-can-you-trust-your-model-calibration/1769269172843.png" alt="Calibrated predictions" style="max-width: 100%; width: 550px;">
-</p>
+```python
+logits = clf.decision_function(X_new)
+calibrated_proba = platt_lr.predict_proba(logits.reshape(-1, 1))[:, 1]
+```
 
 > **Pro tip:** Use **Brier score** and **Log loss** to measure calibration quality. Lower = better. These metrics punish overconfidence.
 
