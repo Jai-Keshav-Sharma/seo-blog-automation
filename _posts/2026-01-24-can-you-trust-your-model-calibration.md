@@ -91,7 +91,7 @@ Here's the recipe:
 <p align="center">
 <img src="https://substackcdn.com/image/fetch/$s_!hGyM!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ef653dc-8058-4cee-a22b-fd6a62cc69c1_2980x580.png" alt="Step 3" style="max-width: 100%; width: 600px;">
 </p>
-![1769358939036](image/2026-01-24-can-you-trust-your-model-calibration/1769358939036.png)![1769358945060](image/2026-01-24-can-you-trust-your-model-calibration/1769358945060.png)![1769358955933](image/2026-01-24-can-you-trust-your-model-calibration/1769358955933.png)
+
 1. **Train your base model** on the training data (it'll probably be overconfident, the audacity)
 2. **Get the logits** (raw scores before sigmoid) on your validation data
 3. **Train a Logistic Regression** that maps those logits to actual outcomes
