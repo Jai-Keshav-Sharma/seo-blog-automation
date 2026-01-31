@@ -67,6 +67,10 @@ Why? Because the model is trying to represent thousands of concepts with a limit
 
 This compression is called **superposition** — multiple features sharing the same representational dimensions. And it's what makes interpretability so hard.
 
+<p align="center">
+<img src="/assets/images/posts/polysemanticity_superposition.png" alt="Polysemanticity vs Superposition" style="max-width: 100%; width: 600px; border-radius: 8px;">
+</p>
+
 **But here's the key insight:**
 
 > Even though individual neurons are messy, *directions* in activation space can still be clean.
