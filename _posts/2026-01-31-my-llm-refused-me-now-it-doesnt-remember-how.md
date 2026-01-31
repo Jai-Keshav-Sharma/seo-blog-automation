@@ -45,7 +45,9 @@ And if concepts are directions, then **changing behavior = moving along that dir
 
 You've probably seen the most famous example of this:
 
-$$\text{King} - \text{Man} + \text{Woman} = \text{Queen}$$
+<p align="center">
+<img src="/assets/images/posts/king_queen.gif" alt="King - Man + Woman = Queen" style="max-width: 100%; width: 500px; border-radius: 8px;">
+</p>
 
 This isn't magic. It's literally vector arithmetic. The "royalty" direction plus the "female" direction gives you a queen. The model learned these directions from data, and we can manipulate them directly.
 
