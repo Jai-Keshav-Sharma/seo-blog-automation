@@ -14,11 +14,21 @@ permalink: /artificial-intelligence/
         {% endif %}
     </header>
     
-    <div class="coming-soon-container" style="text-align: center; padding: 80px 20px;">
-        <h2 style="font-size: 2.5rem; color: #6c757d; margin-bottom: 20px;">🚀 Coming Soon</h2>
-        <p style="font-size: 1.2rem; color: #868e96; max-width: 500px; margin: 0 auto;">
-            We're cooking up some exciting AI content. Stay tuned!
-        </p>
+    <div class="posts-grid">
+        {% assign ai_posts = site.posts | where_exp: "post", "post.categories contains 'artificial-intelligence'" %}
+        
+        {% if ai_posts.size > 0 %}
+            {% for post in ai_posts %}
+                {% include post-card.html post=post %}
+            {% endfor %}
+        {% else %}
+            <div class="coming-soon-container" style="text-align: center; padding: 80px 20px;">
+                <h2 style="font-size: 2.5rem; color: #6c757d; margin-bottom: 20px;">🚀 Coming Soon</h2>
+                <p style="font-size: 1.2rem; color: #868e96; max-width: 500px; margin: 0 auto;">
+                    We're cooking up some exciting AI content. Stay tuned!
+                </p>
+            </div>
+        {% endif %}
     </div>
     
     <div class="back-link">
