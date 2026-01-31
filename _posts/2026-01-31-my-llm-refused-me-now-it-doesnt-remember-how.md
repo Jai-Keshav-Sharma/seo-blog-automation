@@ -92,6 +92,10 @@ If the Linear Representation Hypothesis is true, then we can:
 2. Subtract it during inference
 3. Watch the model forget it ever learned to say no
 
+<p align="center">
+<img src="/assets/images/posts/steering_process.png" alt="Steering Vector Process" style="max-width: 100%; width: 600px; border-radius: 8px;">
+</p>
+
 Here's the recipe:
 
 ### Step 1: Create Contrastive Pairs
