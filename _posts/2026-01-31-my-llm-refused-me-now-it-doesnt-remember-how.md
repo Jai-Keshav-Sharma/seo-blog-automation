@@ -9,10 +9,6 @@ image: assets/images/posts/steering_cover.png
 description: "A deep dive into steering vectors, activation spaces, and how a little linear algebra can make your LLM forget its safety training."
 ---
 
-<p align="center">
-<img src="/assets/images/posts/steering_cover.png" alt="Before and After: LLM Refusal vs Compliance" style="max-width: 100%; width: 700px; border-radius: 8px;">
-</p>
-
 I asked Gemma a question. She refused. Said something about "ethical guidelines" and "I cannot assist with that."
 
 Fair enough. She was trained that way.
