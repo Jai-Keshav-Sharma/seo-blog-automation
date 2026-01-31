@@ -247,4 +247,13 @@ If alignment is this fragile — if safety training can be undone with a hook an
 
 ---
 
+**Further Reading:**
+
+- [Steering GPT-2-XL by adding an ideation vector (Lesswrong)](https://www.lesswrong.com/posts/5spBue2z2tw4JuDCx/steering-gpt-2-xl-by-adding-an-activation-vector)
+- [Representation Engineering: A Top-Down Approach to AI Transparency](https://arxiv.org/abs/2310.01405)
+- [AdvBench Harmful Behaviors Dataset](https://github.com/llm-attacks/llm-attacks)
+- [Full Implementation Notebook](https://colab.research.google.com/drive/1U714yNN69Zd1Zbx_GOWMpKidJhv7aTHJ?usp=sharing)
+
+---
+
 *Enjoyed this? Share it with someone who still trusts their model's "no."*
