@@ -675,9 +675,76 @@ a:hover {
   }
 }
 
-/* Code highlighting */
+/* Code highlighting - Light mode */
 .hljs {
-  background: #f8f8f8 !important;
+  background: var(--color-code-bg) !important;
+  color: var(--color-text) !important;
+  padding: 1em !important;
+  border-radius: 3px;
+}
+
+/* Dark mode syntax highlighting */
+.dark .hljs {
+  background: #0d1117 !important;
+  color: #e6edf3 !important;
+}
+
+.dark .hljs-keyword,
+.dark .hljs-selector-tag,
+.dark .hljs-built_in,
+.dark .hljs-name,
+.dark .hljs-tag {
+  color: #ff7b72;
+}
+
+.dark .hljs-string,
+.dark .hljs-title,
+.dark .hljs-section,
+.dark .hljs-attribute,
+.dark .hljs-literal,
+.dark .hljs-template-tag,
+.dark .hljs-template-variable,
+.dark .hljs-type,
+.dark .hljs-addition {
+  color: #a5d6ff;
+}
+
+.dark .hljs-comment,
+.dark .hljs-quote,
+.dark .hljs-deletion,
+.dark .hljs-meta {
+  color: #8b949e;
+}
+
+.dark .hljs-function,
+.dark .hljs-variable,
+.dark .hljs-number {
+  color: #79c0ff;
+}
+
+.dark .hljs-class .hljs-title,
+.dark .hljs-title.class_ {
+  color: #ffa657;
+}
+
+.dark .hljs-attr,
+.dark .hljs-symbol,
+.dark .hljs-bullet,
+.dark .hljs-link {
+  color: #7ee787;
+}
+
+/* Inline code in dark mode */
+.dark .post-content p>code,
+.dark .post-content li>code {
+  background-color: #21262d;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+}
+
+.dark pre {
+  background-color: #0d1117 !important;
+  border: 1px solid #30363d;
 }
 
 /* No posts message */
