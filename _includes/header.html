@@ -2,15 +2,14 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="{{ '/' | relative_url }}" class="site-logo">
-                <img src="{{ '/assets/images/Logo_New.jpeg' | relative_url }}" alt="{{ site.title }}"
-                    class="site-logo-img">
+                <img src="{{ '/assets/images/Logo_New.jpeg' | relative_url }}" alt="{{ site.title }}" class="site-logo-img">
                 <span class="site-logo-text">{{ site.title }}</span>
             </a>
-
+            
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars"></i>
             </button>
-
+            
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="{{ '/' | relative_url }}" class="nav-link">
@@ -27,111 +26,21 @@
                         <i class="fa-solid fa-envelope"></i> Contact
                     </a>
                 </li>
-                <li class="nav-item">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                        <i class="fa-solid fa-moon" id="theme-icon"></i>
-                    </button>
-                </li>
             </ul>
         </div>
     </nav>
 </header>
 
 <script>
-    // Theme Toggle with View Transitions API
-    (function () {
-        var THEME_KEY = 'theme';
-        var DARK_CLASS = 'dark';
-
-        // Get saved theme or system preference
-        function getPreferredTheme() {
-            var saved = localStorage.getItem(THEME_KEY);
-            if (saved) return saved;
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    // Mobile nav toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.querySelector('.nav-menu');
+        
+        if (toggle) {
+            toggle.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
         }
-
-        // Apply theme immediately (before paint)
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                document.documentElement.classList.add(DARK_CLASS);
-            } else {
-                document.documentElement.classList.remove(DARK_CLASS);
-            }
-            updateIcon(theme);
-        }
-
-        // Update the toggle icon
-        function updateIcon(theme) {
-            var icon = document.getElementById('theme-icon');
-            if (icon) {
-                icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-            }
-        }
-
-        // Apply theme on load
-        applyTheme(getPreferredTheme());
-
-        // Initialize toggle after DOM ready
-        document.addEventListener('DOMContentLoaded', function () {
-            var toggle = document.querySelector('.nav-toggle');
-            var menu = document.querySelector('.nav-menu');
-            var themeToggle = document.getElementById('theme-toggle');
-
-            // Mobile nav toggle
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    menu.classList.toggle('active');
-                });
-            }
-
-            // Theme toggle with animation
-            if (themeToggle) {
-                themeToggle.addEventListener('click', function () {
-                    var isDark = document.documentElement.classList.contains(DARK_CLASS);
-                    var newTheme = isDark ? 'light' : 'dark';
-
-                    // Check if View Transitions API is supported
-                    if (!document.startViewTransition) {
-                        applyTheme(newTheme);
-                        localStorage.setItem(THEME_KEY, newTheme);
-                        return;
-                    }
-
-                    // Get button position for the circular animation
-                    var rect = themeToggle.getBoundingClientRect();
-                    var x = rect.left + rect.width / 2;
-                    var y = rect.top + rect.height / 2;
-                    var maxRadius = Math.hypot(
-                        Math.max(rect.left, window.innerWidth - rect.left),
-                        Math.max(rect.top, window.innerHeight - rect.top)
-                    );
-
-                    // Start the view transition
-                    var transition = document.startViewTransition(function () {
-                        applyTheme(newTheme);
-                        localStorage.setItem(THEME_KEY, newTheme);
-                    });
-
-                    // Wait for transition to be ready, then animate
-                    transition.ready.then(function () {
-                        document.documentElement.animate(
-                            {
-                                clipPath: isDark
-                                    ? ['circle(' + maxRadius + 'px at ' + x + 'px ' + y + 'px)', 'circle(0px at ' + x + 'px ' + y + 'px)']
-                                    : ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + maxRadius + 'px at ' + x + 'px ' + y + 'px)']
-                            },
-                            {
-                                duration: 500,
-                                easing: 'ease-in-out',
-                                pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)'
-                            }
-                        );
-                    });
-                });
-            }
-
-            // Update icon on load
-            updateIcon(getPreferredTheme());
-        });
-    })();
+    });
 </script>
