@@ -31,7 +31,7 @@ export const DarkModeBackground = () => {
                 squareSize={4}
                 gridGap={6}
                 flickerChance={0.3}
-                color="rgb(59, 130, 246)" // Blue color for the grid
+                color="rgb(255, 255, 255)" // White color for clean look
                 maxOpacity={0.25}
                 className="flickering-grid-bg"
             />

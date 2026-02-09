@@ -34,21 +34,27 @@
 
 /* Dark Mode Variables */
 .dark {
-  --color-bg: #1a1a2e;
-  --color-card: #16213e;
+  --color-bg: #0a0a0a;
+  --color-card: #121212;
   --color-text: #e4e4e7;
   --color-text-light: #a1a1aa;
   --color-heading: #fafafa;
   --color-link: #60a5fa;
   --color-link-hover: #93c5fd;
-  --color-navbar: #0f0f23;
+  --color-navbar: #0a0a0a;
   --color-navbar-text: #ffffff;
-  --color-border: #374151;
+  --color-border: #2a2a2a;
   --color-accent: #60a5fa;
-  --color-code-bg: #1e293b;
+  --color-code-bg: #1a1a1a;
 
-  --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.4);
-  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Remove leaf background in dark mode - pure black background */
+.dark body {
+  background-image: none;
+  background-color: #0a0a0a;
 }
 
 /* View Transitions API - Required for animated theme toggle */
