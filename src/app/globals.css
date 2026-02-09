@@ -160,11 +160,7 @@ body {
   font-weight: var(--font-weight-body);
   line-height: 1.7;
   color: var(--color-text);
-  background-color: #2a2a2a;
-  background-image: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1920&q=80');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+  background-color: #1a1a2e;
   min-height: 100vh;
 }
 
