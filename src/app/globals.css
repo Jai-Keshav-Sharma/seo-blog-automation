@@ -316,27 +316,29 @@ a:hover {
 
 /* MagicCard layers */
 .magic-card-wrapper {
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 12px;
+  overflow: visible;
+  border: 1px solid var(--color-border);
+  background: transparent;
 }
 
 .magic-card-border {
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.magic-card-wrapper:hover .magic-card-border {
-  opacity: 1;
+  z-index: 0;
 }
 
 .magic-card-bg {
   background-color: var(--color-card);
-  border-radius: inherit;
+  z-index: 1;
 }
 
 .magic-card-glow {
-  border-radius: inherit;
+  z-index: 2;
+}
+
+.magic-card-wrapper>.relative {
+  z-index: 3;
+  background-color: var(--color-card);
+  overflow: hidden;
 }
 
 .post-card-link {
