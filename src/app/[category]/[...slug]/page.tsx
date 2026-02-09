@@ -8,6 +8,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import AuthorBox from "@/components/AuthorBox";
 import Giscus from "@/components/Giscus";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 interface PostPageProps {
     params: Promise<{ category: string; slug: string[] }>;
@@ -61,6 +62,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
     return (
         <article className="post-container">
+            <ScrollProgress className="top-[50px]" />
             <header className="post-header">
                 <h1 className="post-title">{post.title}</h1>
                 <div className="post-meta">
