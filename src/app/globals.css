@@ -104,6 +104,45 @@
   inset: 0;
 }
 
+/* Light Mode Background Container */
+.light-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Meteor Animation */
+@keyframes meteor {
+  0% {
+    transform: rotate(var(--angle)) translateX(0);
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(var(--angle)) translateX(-500px);
+    opacity: 0;
+  }
+}
+
+.animate-meteor {
+  animation: meteor 5s linear infinite;
+}
+
+/* Utility classes for Meteors */
+.size-0\.5 {
+  width: 0.125rem;
+  height: 0.125rem;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
